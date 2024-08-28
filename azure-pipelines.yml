@@ -1,6 +1,6 @@
 # azure-pipelines.yml
 trigger:
-  - main
+- main
 
 pool:
   vmImage: 'ubuntu-latest'
@@ -21,7 +21,7 @@ stages:
     steps:
     - template: /templates/template-aws-cli.yml
   - parameters:
-    awsScript: 'script-aws.sh'
+      awsScriptPath: 'script-aws.sh'
 
 
 # trigger:
