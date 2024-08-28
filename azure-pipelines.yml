@@ -9,19 +9,19 @@ variables:
   - template: /templates/template-variables-aws.yml
 
 stages:
-  - stage: python
-    jobs:
-      - job: python
-        steps:
-           - template: /templates/template-python.yml
+- stage: python
+  jobs:
+  - job: python
+    steps:
+    - template: /templates/template-python.yml
 
-  - stage: runAWS
-    jobs:
-      - job: runAWS
-        steps:
-          - template: /templates/template-aws-cli.yml
-          parameters:
-            awsScript: 'script-aws.sh'
+- stage: runAWS
+  jobs:
+  - job: runAWS
+    steps:
+    - template: /templates/template-aws-cli.yml
+  - parameters:
+    awsScript: 'script-aws.sh'
 
 
 # trigger:
