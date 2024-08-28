@@ -1,25 +1,27 @@
 # azure-pipelines.yml
- trigger:
-   - main
+trigger:
+  - main
 
- pool:
-   vmImage: 'ubuntu-latest'
+pool:
+  vmImage: 'ubuntu-latest'
 
+variables:
+  - template: /templates/template-variables-aws.yml
 
- stages:
-   - stage: python
-     jobs:
-       - job: python
-         steps:
+stages:
+  - stage: python
+    jobs:
+      - job: python
+        steps:
            - template: /templates/template-python.yml
-           - template: /templates/template-aws-cli.yml
 
-   - stage: buckets
-     jobs:
-       - job: buckets
-         steps:
-           - script: aws s3 ls
-             displayName: 'List S3 Buckets'
+  - stage: runAWS
+    jobs:
+      - job: runAWS
+        steps:
+          - template: /templates/template-aws-cli.yml
+          parameters:
+            awsScript: 'script-aws.sh'
 
 
 # trigger:
