@@ -20,8 +20,8 @@ stages:
   - job: runAWS
     steps:
     - template: /templates/template-aws-cli.yml
-  - parameters:
-      awsScriptPath: 'script-aws.sh'
+  parameters:
+    awsScriptPath: 'script-aws.sh'
 
 
 # trigger:
