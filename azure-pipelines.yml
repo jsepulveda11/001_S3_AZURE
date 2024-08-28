@@ -1,0 +1,51 @@
+# azure-pipelines.yml
+ trigger:
+   - main
+
+ pool:
+   vmImage: 'ubuntu-latest'
+
+
+ stages:
+   - stage: python
+     jobs:
+       - job: python
+         steps:
+           - template: /templates/template-python.yml
+           - template: /templates/template-aws-cli.yml
+
+   - stage: buckets
+     jobs:
+       - job: buckets
+         steps:
+           - script: aws s3 ls
+             displayName: 'List S3 Buckets'
+
+
+# trigger:
+# - main
+
+# pool:
+#   vmImage: 'ubuntu-latest'
+
+# steps:
+# - task: UsePythonVersion@0
+#   inputs:
+#     versionSpec: '3.x'
+#     addToPath: true
+
+# - script: |
+#     python3 -m venv .venv
+#     source .venv/bin/activate
+#     pip install awscli
+#   displayName: 'Setup AWS CLI'
+
+# - script: |
+#     aws configure set aws_access_key_id $(AWS_ACCESS_KEY_ID)
+#     aws configure set aws_secret_access_key $(AWS_SECRET_ACCESS_KEY)
+#     aws configure set default.region $(AWS_DEFAULT_REGION)
+#   displayName: 'Configure AWS CLI'
+
+# - script: |
+#     aws s3 ls
+#   displayName: 'List S3 Buckets'
