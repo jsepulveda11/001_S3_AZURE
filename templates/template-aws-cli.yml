@@ -1,8 +1,7 @@
 steps:
 - script: |
-    ./script-aws.sh
-  displayName: 'Ejecucion por Script'
-  
+    chmod +x ./script-aws.sh
+  displayName: 'Ejecucion por Script S3'
   env:
     AWS_ACCESS_KEY_ID: $(AWS_ACCESS_KEY_ID)
     AWS_SECRET_ACCESS_KEY: $(AWS_SECRET_ACCESS_KEY)

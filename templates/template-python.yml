@@ -8,4 +8,4 @@ steps:
     python3 -m venv .venv
     source .venv/bin/activate
     pip install awscli
-  displayName: 'Setup AWS CLI'
+  displayName: 'Configuracion de Python y AWS CLI'
