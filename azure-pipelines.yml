@@ -6,12 +6,12 @@ pool:
   vmImage: 'ubuntu-latest'
 
 variables:
-  - template: /templates/template-variables-aws.yml
+  - group: 001-S3-AD
 
 stages:
-- stage: python
+- stage: PythonConfig
   jobs:
-  - job: python
+  - job: PythonConfig
     steps:
     - template: /templates/template-python.yml
 
