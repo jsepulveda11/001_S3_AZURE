@@ -5,7 +5,7 @@
 #     aws configure set default.region $(AWS_DEFAULT_REGION)
 #   displayName: 'Configure AWS CLI'
 script: |
-  ./script-aws.sh
+- template: ./script-aws.sh
 displayName: 'Ejecucion por Script'
 env:
   AWS_ACCESS_KEY_ID: $(AWS_ACCESS_KEY_ID)
